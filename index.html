@@ -18,9 +18,9 @@
     main { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
     section { margin-bottom: 25px; padding: 25px; background: #161b22; border-radius: 15px; box-shadow: 0 0 12px rgba(0, 255, 255, 0.15); border: 1px solid rgba(0, 255, 255, 0.1); }
     h2 { color: cyan; margin-bottom: 15px; border-bottom: 1px solid rgba(0, 255, 255, 0.3); padding-bottom: 5px; }
-    .leadership-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .leadership-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
     .card { background: #1f2937; padding: 20px; border-radius: 10px; margin-top: 10px; }
-    .profile-img { width: 140px; height: 175px; object-fit: cover; border-radius: 10px; border: 2px solid cyan; box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); margin-bottom: 12px; }
+    .profile-img { width: 130px; height: 160px; object-fit: cover; border-radius: 10px; border: 2px solid cyan; box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); margin-bottom: 12px; }
     .highlight { color: cyan; font-weight: bold; }
     .grid-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; list-style: none; padding: 0; }
     .grid-item { background: #0d1117; padding: 12px 15px; border-radius: 8px; border-left: 3px solid cyan; }
@@ -77,15 +77,25 @@
             <img src="adnan.jpg" alt="Adnan Ahmad" class="profile-img" />
             <h3>ADNAN AHMAD</h3>
             <p class="highlight">Founder & CEO</p>
-            <p style="margin-top: 8px; font-size: 0.9rem;"><strong>Motto:</strong> CODE THE FUTURE.</p>
-            <p style="margin-top: 4px; font-style: italic; color: #a0aec0; font-size: 0.8rem;">Next Generation Unified Experimental Systems — Advanced Robotics & Computing</p>
+            <p style="margin-top: 8px; font-size: 0.85rem;"><strong>Motto:</strong> CODE THE FUTURE.</p>
           </div>
           <div class="card" style="text-align: center;">
             <img src="khayum.jpg" alt="Abdul Khayum" class="profile-img" />
             <h3>ABDUL KHAYUM</h3>
             <p class="highlight">Co-Founder</p>
-            <p style="margin-top: 8px; font-size: 0.9rem;"><strong>Focus:</strong> Strategic Engineering & Advisory Board</p>
-            <p style="margin-top: 4px; font-style: italic; color: #a0aec0; font-size: 0.8rem;">NexusDev Technologies Leadership Board</p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">Strategic Advisory Board</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <img src="adil.jpg" alt="Adil Ahmad" class="profile-img" />
+            <h3>ADIL AHMAD</h3>
+            <p class="highlight">Chief Social Media Strategist</p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">Media Outreach & Communications</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <img src="adeeb.jpg" alt="Adeeb Ahmad" class="profile-img" />
+            <h3>ADEEB AHMAD</h3>
+            <p class="highlight">Technology Explorer</p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">Innovation & Field Research</p>
           </div>
         </div>
       </section>
@@ -340,7 +350,7 @@
         <p><strong>ORGANIZATION    :</strong> ${escapeHtml(newRecord.user_org)}</p>
         <p><strong>TARGET PROJECT  :</strong> ${projectTitle}</p>
         <p>----------------------------------------------------</p>
-        <p><strong>STATUS          :</strong> REGISTERED ON TIINY HOST</p>
+        <p><strong>STATUS          :</strong> REGISTERED ON GITHUB</p>
         <p><strong>LEAD ENGINEER   :</strong> ADNAN AHMAD</p>
         <h4 style="color: cyan; border-top: 1px dashed cyan; margin-top: 5px; padding-top: 5px;">====================================================</h4>
       `;
