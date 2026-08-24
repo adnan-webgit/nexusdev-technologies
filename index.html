@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUSDEV TECHNOLOGIES | Adnan Ahmad</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d1117; color: #ffffff; line-height: 1.6; }
+    header { background: linear-gradient(90deg, #001f3f, #0074D9); padding: 30px 20px; text-align: center; border-bottom: 2px solid cyan; }
+    .header-logo { width: 100px; height: 100px; margin-bottom: 10px; filter: drop-shadow(0 0 10px cyan); }
+    header h1 { font-size: 38px; margin: 0; letter-spacing: 2px; }
+    header p { font-size: 18px; margin-top: 8px; color: #7fdbff; }
+    nav { background-color: #161b22; display: flex; justify-content: center; gap: 20px; padding: 12px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0, 255, 255, 0.2); }
+    nav a { color: #ffffff; text-decoration: none; font-weight: bold; cursor: pointer; }
+    nav a:hover { color: cyan; }
+    .admin-nav { color: #4ecca3 !important; }
+    main { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
+    section { margin-bottom: 25px; padding: 25px; background: #161b22; border-radius: 15px; box-shadow: 0 0 12px rgba(0, 255, 255, 0.15); border: 1px solid rgba(0, 255, 255, 0.1); }
+    h2 { color: cyan; margin-bottom: 15px; border-bottom: 1px solid rgba(0, 255, 255, 0.3); padding-bottom: 5px; }
+    .leadership-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card { background: #1f2937; padding: 20px; border-radius: 10px; margin-top: 10px; }
+    .profile-img { width: 140px; height: 175px; object-fit: cover; border-radius: 10px; border: 2px solid cyan; box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); margin-bottom: 12px; }
+    .highlight { color: cyan; font-weight: bold; }
+    .grid-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; list-style: none; padding: 0; }
+    .grid-item { background: #0d1117; padding: 12px 15px; border-radius: 8px; border-left: 3px solid cyan; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+    .project-card { background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.2); cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .project-card:hover { transform: translateY(-3px); border-color: cyan; }
+    .project-card h3 { color: cyan; margin-bottom: 8px; }
+    .click-hint { display: inline-block; margin-top: 10px; font-size: 0.85rem; color: #4ecca3; font-weight: bold; }
+    #project-detail-view, #admin-view { display: none; }
+    .back-btn { background: cyan; color: #0d1117; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-bottom: 20px; }
+    pre { background: #090d13; padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.2); overflow-x: auto; color: #a6accd; font-family: 'Consolas', monospace; font-size: 0.85rem; margin-top: 10px; white-space: pre-wrap; word-break: break-word; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid rgba(0, 255, 255, 0.2); padding: 10px; text-align: left; }
+    th { background: #0d1117; color: cyan; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; color: #7fdbff; font-weight: bold; }
+    .form-group input, .form-group select { width: 100%; padding: 10px; background: #0d1117; border: 1px solid rgba(0, 255, 255, 0.3); border-radius: 6px; color: #ffffff; font-size: 1rem; }
+    .submit-btn { background: #4ecca3; color: #0d1117; font-weight: bold; border: none; padding: 12px 25px; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    .ok-btn { background: #0074D9; color: #ffffff; font-weight: bold; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .ok-btn:hover { background: cyan; color: #000; }
+    .summary-box { display: none; margin-top: 20px; background: #090d13; border: 2px dashed cyan; padding: 20px; border-radius: 10px; font-family: 'Consolas', monospace; }
+    .sub-card { background: #0d1117; border: 1px solid cyan; border-radius: 8px; padding: 15px; margin-bottom: 15px; font-family: 'Consolas', monospace; }
+    .sub-card p { margin-bottom: 5px; }
+    footer { background: #001f3f; text-align: center; padding: 25px; margin-top: 40px; border-top: 2px solid cyan; }
+    .contact-info { margin-top: 10px; color: #7fdbff; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <svg class="header-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" stroke="cyan" stroke-width="3"/>
+      <polygon points="50,15 80,80 50,65 20,80" fill="cyan" opacity="0.8"/>
+      <circle cx="50" cy="40" r="8" fill="#0d1117" stroke="cyan" stroke-width="2"/>
+    </svg>
+    <h1>NEXUSDEV TECHNOLOGIES</h1>
+    <p>Future Robotics & AI Research Organization</p>
+  </header>
+
+  <nav>
+    <a href="#leadership" onclick="showMainPage()">Leadership</a>
+    <a href="#divisions" onclick="showMainPage()">Divisions</a>
+    <a href="#skills" onclick="showMainPage()">Skills & Goals</a>
+    <a href="#projects" onclick="showMainPage()">Projects</a>
+    <a class="admin-nav" onclick="accessSubmissions()">🔒 Submission Requests</a>
+  </nav>
+
+  <main>
+    <div id="main-view">
+      <section id="leadership">
+        <h2>👑 Organization Leadership</h2>
+        <div class="leadership-grid">
+          <div class="card" style="text-align: center;">
+            <img src="adnan.jpg" alt="Adnan Ahmad" class="profile-img" />
+            <h3>ADNAN AHMAD</h3>
+            <p class="highlight">Founder & CEO</p>
+            <p style="margin-top: 8px; font-size: 0.9rem;"><strong>Motto:</strong> CODE THE FUTURE.</p>
+            <p style="margin-top: 4px; font-style: italic; color: #a0aec0; font-size: 0.8rem;">Next Generation Unified Experimental Systems — Advanced Robotics & Computing</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <img src="khayum.jpg" alt="Abdul Khayum" class="profile-img" />
+            <h3>ABDUL KHAYUM</h3>
+            <p class="highlight">Co-Founder</p>
+            <p style="margin-top: 8px; font-size: 0.9rem;"><strong>Focus:</strong> Strategic Engineering & Advisory Board</p>
+            <p style="margin-top: 4px; font-style: italic; color: #a0aec0; font-size: 0.8rem;">NexusDev Technologies Leadership Board</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="divisions">
+        <h2>🤖 Main Divisions</h2>
+        <div class="card">
+          <ul class="grid-list">
+            <li class="grid-item">Robotics Division</li>
+            <li class="grid-item">AI Division</li>
+            <li class="grid-item">Embedded Systems Division</li>
+            <li class="grid-item">Cybersecurity Division</li>
+            <li class="grid-item">Software Development Division</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>⚡ Technical Skills & Focus Areas</h2>
+        <div class="card">
+          <ul class="grid-list">
+            <li class="grid-item">Arduino Programming</li>
+            <li class="grid-item">ESP8266 & HC-05 Bluetooth</li>
+            <li class="grid-item">Sensor Interfacing</li>
+            <li class="grid-item">LCD I2C Systems</li>
+            <li class="grid-item">Relay Automation</li>
+            <li class="grid-item">Motor Control</li>
+            <li class="grid-item">3D Design & CAD</li>
+            <li class="grid-item">App Development</li>
+            <li class="grid-item">Game Development</li>
+            <li class="grid-item">Ethical Hacking & Cybersecurity</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>🏆 Completed Projects & Hardware Builds</h2>
+        <p style="margin-bottom: 15px; color: #a0aec0;">Click on any project below to inspect circuit diagrams, pinout configurations, and source code.</p>
+        <div class="card">
+          <div class="projects-grid">
+            <div class="project-card" onclick="openProject('car')">
+              <h3>ESP8266 2WD Bluetooth RC Car</h3>
+              <p>Two-wheel drive robotic vehicle controlled via HC-05 Bluetooth with dynamic PWM speed regulation.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+            <div class="project-card" onclick="openProject('joystick')">
+              <h3>Arduino Uno PS2 Bluetooth Controller</h3>
+              <p>Wireless master transmitter featuring PS2 joysticks, speed gauge servo motor, and AIP31068 LCD display.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+            <div class="project-card" onclick="openProject('radar')">
+              <h3>Radar Scanner</h3>
+              <p>Ultrasonic sensor-based sweep system mounted on micro servo motors for distance detection.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+            <div class="project-card" onclick="openProject('plant')">
+              <h3>Smart Plant Monitor</h3>
+              <p>Soil moisture tracking system designed for automatic plant hydration monitoring.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+            <div class="project-card" onclick="openProject('alarm')">
+              <h3>Motion Security Alarm</h3>
+              <p>PIR and interrupt-driven relay alarm system for immediate security breach detection.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+            <div class="project-card" onclick="openProject('weather')">
+              <h3>Micro Weather Station</h3>
+              <p>Environmental tracking station reading temperature, humidity, and atmospheric metrics.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+            <div class="project-card" onclick="openProject('pump')">
+              <h3>Water Pump Automation Unit</h3>
+              <p>Automated fluid level detection system controlling high-voltage relays for smart pumping.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+            <div class="project-card" onclick="openProject('lamp')">
+              <h3>Automatic Night Lamp</h3>
+              <p>Light-dependent resistor (LDR) automation triggering night illumination automatically.</p>
+              <span class="click-hint">Click for Pinouts & C++ Code &rarr;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="project-detail-view">
+      <button class="back-btn" onclick="showMainPage()">&larr; Back to Portfolio</button>
+      <section id="detail-content"></section>
+    </div>
+
+    <div id="admin-view">
+      <button class="back-btn" onclick="showMainPage()">&larr; Back to Portfolio</button>
+      <section>
+        <h2>📬 Live Intake Submissions Panel</h2>
+        <p style="margin-bottom: 20px; color: #a0aec0;">Authorized NexusDev Technologies Portal</p>
+        <button class="submit-btn" style="margin-bottom: 20px;" onclick="fetchSubmissions()">🔄 Refresh Requests</button>
+        <div id="submissions-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <h3>NEXUSDEV TECHNOLOGIES © 2026</h3>
+    <p>Designed by ADNAN AHMAD</p>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +91 8281349340 | <strong>Email:</strong> 8281349340india@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    let storedRequests = JSON.parse(localStorage.getItem("nexus_requests") || "[]");
+
+    const projectData = {
+      car: {
+        title: "ESP8266 2WD Bluetooth RC Car",
+        category: "Embedded Systems Division",
+        summary: "2WD robotic chassis driven by ESP8266 NodeMCU via HC-05 Bluetooth with PWM speed regulation.",
+        wiring: [
+          { component: "L298N IN1", pin: "D5 (GPIO14)" },
+          { component: "L298N IN2", pin: "D6 (GPIO12)" },
+          { component: "L298N IN3", pin: "D7 (GPIO13)" },
+          { component: "L298N IN4", pin: "D8 (GPIO15)" },
+          { component: "HC-05 RX / TX", pin: "Software Serial D1 / D2" }
+        ],
+        code: `#include <SoftwareSerial.h>\n\nSoftwareSerial BT(D1, D2);\nconst int IN1 = D5;\nconst int IN2 = D6;\nconst int IN3 = D7;\nconst int IN4 = D8;\n\nvoid setup() {\n  BT.begin(9600);\n  pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);\n  pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);\n  stopMotors();\n}\n\nvoid loop() {\n  if (BT.available()) {\n    char cmd = BT.read();\n    if (cmd == 'F') forward();\n    else if (cmd == 'B') backward();\n    else if (cmd == 'L') turnLeft();\n    else if (cmd == 'R') turnRight();\n    else if (cmd == 'S') stopMotors();\n  }\n}\n\nvoid forward() { digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); }\nvoid backward() { digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH); digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH); }\nvoid turnLeft() { digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH); digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); }\nvoid turnRight() { digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH); }\nvoid stopMotors() { digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); }`
+      },
+      joystick: {
+        title: "Arduino Uno PS2 Bluetooth Remote Controller",
+        category: "Control Systems Division",
+        summary: "Master transmitter controller using dual-axis analog joysticks, LCD dashboard output, and servo indicator.",
+        wiring: [
+          { component: "PS2 Joystick X-Axis", pin: "Analog Pin A0" },
+          { component: "PS2 Joystick Y-Axis", pin: "Analog Pin A1" },
+          { component: "Servo Gauge Pin", pin: "Digital Pin 9" },
+          { component: "HC-05 TX / RX", pin: "Digital Pins 2 / 3" }
+        ],
+        code: `#include <SoftwareSerial.h>\n#include <Servo.h>\n\nSoftwareSerial BT(2, 3);\nServo speedGauge;\nconst int joyX = A0;\nconst int joyY = A1;\n\nvoid setup() {\n  BT.begin(9600);\n  speedGauge.attach(9);\n}\n\nvoid loop() {\n  int xVal = analogRead(joyX);\n  int yVal = analogRead(joyY);\n  speedGauge.write(map(yVal, 0, 1023, 0, 180));\n  if (yVal > 700) BT.write('F');\n  else if (yVal < 300) BT.write('B');\n  else if (xVal < 300) BT.write('L');\n  else if (xVal > 700) BT.write('R');\n  else BT.write('S');\n  delay(50);\n}`
+      },
+      radar: {
+        title: "Ultrasonic Radar Scanner",
+        category: "Robotics Division",
+        summary: "Ultrasonic sensor mounted on a 180-degree sweep servo for mapping spatial boundaries and object detection.",
+        wiring: [
+          { component: "HC-SR04 Trig", pin: "Digital Pin 10" },
+          { component: "HC-SR04 Echo", pin: "Digital Pin 11" },
+          { component: "Servo Signal Pin", pin: "Digital Pin 9" }
+        ],
+        code: `#include <Servo.h>\nconst int trigPin = 10; const int echoPin = 11;\nServo radarServo;\nvoid setup() {\n  pinMode(trigPin, OUTPUT); pinMode(echoPin, INPUT);\n  Serial.begin(9600); radarServo.attach(9);\n}\nvoid loop() {\n  for (int i = 15; i <= 165; i++) {\n    radarServo.write(i); delay(30);\n    Serial.print(i); Serial.print(","); Serial.println(getDistance());\n  }\n}\nint getDistance() {\n  digitalWrite(trigPin, LOW); delayMicroseconds(2);\n  digitalWrite(trigPin, HIGH); delayMicroseconds(10);\n  digitalWrite(trigPin, LOW);\n  return pulseIn(echoPin, HIGH) * 0.034 / 2;\n}`
+      },
+      plant: {
+        title: "Smart Plant Monitor",
+        category: "IoT Division",
+        summary: "Monitors soil moisture continuously and activates liquid relay pump when thresholds drop below minimum limits.",
+        wiring: [{ component: "Soil Moisture Sensor", pin: "Analog Pin A0" }, { component: "Relay Control Pin", pin: "Digital Pin 7" }],
+        code: `const int sensorPin = A0; const int relayPin = 7;\nvoid setup() { pinMode(relayPin, OUTPUT); digitalWrite(relayPin, HIGH); }\nvoid loop() {\n  int moisture = analogRead(sensorPin);\n  if (moisture > 400) digitalWrite(relayPin, LOW);\n  else digitalWrite(relayPin, HIGH);\n  delay(1000);\n}`
+      },
+      alarm: {
+        title: "Motion Security Alarm",
+        category: "Security Division",
+        summary: "PIR motion sensor alarm system trigger driving alert relays and audio outputs.",
+        wiring: [{ component: "PIR Sensor", pin: "Digital Pin 2" }, { component: "Relay Pin", pin: "Digital Pin 4" }],
+        code: `const int pirPin = 2; const int relayPin = 4;\nvoid setup() { pinMode(pirPin, INPUT); pinMode(relayPin, OUTPUT); }\nvoid loop() {\n  if (digitalRead(pirPin) == HIGH) { digitalWrite(relayPin, HIGH); delay(5000); }\n  else digitalWrite(relayPin, LOW);\n}`
+      },
+      weather: {
+        title: "Micro Weather Station",
+        category: "Embedded Systems Division",
+        summary: "Environmental tracker calculating relative humidity and local atmospheric temperatures.",
+        wiring: [{ component: "DHT Data Pin", pin: "Digital Pin 4" }],
+        code: `#include <DHT.h>\n#define DHTPIN 4\n#define DHTTYPE DHT11\nDHT dht(DHTPIN, DHTTYPE);\nvoid setup() { Serial.begin(9600); dht.begin(); }\nvoid loop() { delay(2000); Serial.print(dht.readTemperature()); }`
+      },
+      pump: {
+        title: "Water Pump Automation Unit",
+        category: "Automation Division",
+        summary: "Fluid level control unit monitoring reservoir limits to prevent dry-running of pumps.",
+        wiring: [{ component: "Water Sensor", pin: "Analog Pin A0" }, { component: "Relay", pin: "Digital Pin 8" }],
+        code: `void setup() { pinMode(8, OUTPUT); }\nvoid loop() {\n  int val = analogRead(A0);\n  if (val < 200) digitalWrite(8, LOW);\n  else if (val > 600) digitalWrite(8, HIGH);\n}`
+      },
+      lamp: {
+        title: "Automatic Night Illumination Lamp",
+        category: "Embedded Systems Division",
+        summary: "Automated LDR light monitor driving solid-state illumination switches based on ambient light.",
+        wiring: [{ component: "LDR Pin", pin: "Analog Pin A0" }, { component: "Lamp Relay", pin: "Digital Pin 3" }],
+        code: `void setup() { pinMode(3, OUTPUT); }\nvoid loop() {\n  if (analogRead(A0) < 300) digitalWrite(3, HIGH);\n  else digitalWrite(3, LOW);\n}`
+      }
+    };
+
+    function openProject(key) {
+      const data = projectData[key];
+      if (!data) return;
+      let wiringRows = data.wiring.map(w => `<tr><td><strong>${w.component}</strong></td><td>${w.pin}</td></tr>`).join('');
+      let content = `
+        <h2>${data.title}</h2>
+        <p class="highlight" style="margin-bottom: 15px;">Division: ${data.category}</p>
+        <div class="card"><h3>Overview & Logic</h3><p style="margin-top: 8px;">${data.summary}</p></div>
+        <div class="card" style="margin-top: 20px;"><h3>Hardware Wiring Pinouts</h3><table><thead><tr><th>Hardware Module</th><th>Target Board Pin</th></tr></thead><tbody>${wiringRows}</tbody></table></div>
+        <div class="card" style="margin-top: 20px;"><h3>Full Arduino C++ Code</h3><pre><code>${escapeHtml(data.code)}</code></pre></div>
+        <div class="card" style="margin-top: 20px;">
+          <h3>🛠️ Request to Build This Project</h3>
+          <p style="margin-bottom: 15px; color: #a0aec0;">Submit your contact details below to send a request directly to NexusDev Technologies.</p>
+          <form id="nexus-build-form" onsubmit="handleFormSubmit(event, '${escapeHtml(data.title)}')">
+            <div class="form-group"><label>Full Name:</label><input type="text" id="user_name" required /></div>
+            <div class="form-group"><label>Email Address:</label><input type="email" id="user_email" required /></div>
+            <div class="form-group"><label>Phone Number:</label><input type="tel" id="user_phone" required /></div>
+            <div class="form-group"><label>Location / City:</label><input type="text" id="user_location" required /></div>
+            <div class="form-group">
+              <label>Category:</label>
+              <select id="user_category">
+                <option value="Personal / Hobbyist">Personal / Hobbyist</option>
+                <option value="School / Academic Project">School / Academic Project</option>
+                <option value="Professional / Work">Professional / Work</option>
+              </select>
+            </div>
+            <div class="form-group"><label>School or Company Name:</label><input type="text" id="user_org" required /></div>
+            <button type="submit" class="submit-btn">Submit Request</button>
+          </form>
+          <div id="intake-summary" class="summary-box"></div>
+        </div>
+      `;
+      document.getElementById('detail-content').innerHTML = content;
+      document.getElementById('main-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'none';
+      document.getElementById('project-detail-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function handleFormSubmit(event, projectTitle) {
+      event.preventDefault();
+      const newRecord = {
+        id: Date.now(),
+        project_name: projectTitle,
+        user_name: document.getElementById('user_name').value,
+        user_email: document.getElementById('user_email').value,
+        user_phone: document.getElementById('user_phone').value,
+        user_location: document.getElementById('user_location').value,
+        user_category: document.getElementById('user_category').value,
+        user_org: document.getElementById('user_org').value,
+        time: new Date().toLocaleString()
+      };
+      storedRequests.unshift(newRecord);
+      localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
+
+      const summaryBox = document.getElementById('intake-summary');
+      summaryBox.innerHTML = `
+        <h4 style="color: cyan; text-align: center;">====================================================</h4>
+        <h4 style="color: cyan; text-align: center;">NEXUSDEV TECHNOLOGIES - PROJECT REQUEST LOGGED</h4>
+        <h4 style="color: cyan; text-align: center;">====================================================</h4>
+        <p><strong>MAKER NAME      :</strong> ${escapeHtml(newRecord.user_name)}</p>
+        <p><strong>EMAIL           :</strong> ${escapeHtml(newRecord.user_email)}</p>
+        <p><strong>PHONE           :</strong> ${escapeHtml(newRecord.user_phone)}</p>
+        <p><strong>LOCATION        :</strong> ${escapeHtml(newRecord.user_location)}</p>
+        <p><strong>USE CASE        :</strong> ${escapeHtml(newRecord.user_category)}</p>
+        <p><strong>ORGANIZATION    :</strong> ${escapeHtml(newRecord.user_org)}</p>
+        <p><strong>TARGET PROJECT  :</strong> ${projectTitle}</p>
+        <p>----------------------------------------------------</p>
+        <p><strong>STATUS          :</strong> REGISTERED ON TIINY HOST</p>
+        <p><strong>LEAD ENGINEER   :</strong> ADNAN AHMAD</p>
+        <h4 style="color: cyan; border-top: 1px dashed cyan; margin-top: 5px; padding-top: 5px;">====================================================</h4>
+      `;
+      summaryBox.style.display = 'block';
+    }
+
+    function accessSubmissions() {
+      const pass = prompt("Enter Admin Password:");
+      if (pass !== "nexus@sub") {
+        alert("Access Denied: Incorrect Password");
+        return;
+      }
+      document.getElementById('main-view').style.display = 'none';
+      document.getElementById('project-detail-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      fetchSubmissions();
+    }
+
+    function dismissRequest(id) {
+      storedRequests = storedRequests.filter(sub => sub.id !== id);
+      localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
+      fetchSubmissions();
+    }
+
+    function fetchSubmissions() {
+      const container = document.getElementById('submissions-list');
+      if (storedRequests.length === 0) {
+        container.innerHTML = `<p style="color: #4ecca3;">No submissions recorded right now.</p>`;
+        return;
+      }
+      let html = '';
+      storedRequests.forEach((sub, idx) => {
+        html += `
+          <div class="sub-card">
+            <h4 style="color: cyan; margin-bottom: 8px;">#${storedRequests.length - idx} - ${escapeHtml(sub.project_name)}</h4>
+            <p><strong>Submitted At:</strong> ${escapeHtml(sub.time)}</p>
+            <p><strong>Name:</strong> ${escapeHtml(sub.user_name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(sub.user_email)}</p>
+            <p><strong>Phone:</strong> ${escapeHtml(sub.user_phone)}</p>
+            <p><strong>Location:</strong> ${escapeHtml(sub.user_location)}</p>
+            <p><strong>Category:</strong> ${escapeHtml(sub.user_category)}</p>
+            <p><strong>Organization:</strong> ${escapeHtml(sub.user_org)}</p>
+            <button class="ok-btn" onclick="dismissRequest(${sub.id})">OK (Dismiss)</button>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function showMainPage() {
+      document.getElementById('project-detail-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'none';
+      document.getElementById('main-view').style.display = 'block';
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>
