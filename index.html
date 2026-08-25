@@ -109,7 +109,7 @@
             <li class="grid-item">AI Division</li>
             <li class="grid-item">Embedded Systems Division</li>
             <li class="grid-item">Cybersecurity Division</li>
-            <li class="grid-item">Software Development Division</li>
+            <li class="grid-item">Software & App Development Division</li>
           </ul>
         </div>
       </section>
@@ -118,14 +118,15 @@
         <h2>⚡ Technical Skills & Focus Areas</h2>
         <div class="card">
           <ul class="grid-list">
-            <li class="grid-item">Arduino & C++ Programming</li>
+            <li class="grid-item">Arduino & C++ Microcontrollers</li>
             <li class="grid-item">Python & MicroPython</li>
+            <li class="grid-item">HTML5, CSS3 & JavaScript Web Stack</li>
+            <li class="grid-item">Kotlin Android App Development</li>
             <li class="grid-item">PictoBlox (AI & Block Coding)</li>
-            <li class="grid-item">Scratch Game Development</li>
+            <li class="grid-item">Scratch Game Logic</li>
             <li class="grid-item">ESP8266 & HC-05 Bluetooth</li>
-            <li class="grid-item">Sensor Interfacing & LCD I2C</li>
-            <li class="grid-item">Relay Automation & Motor Control</li>
-            <li class="grid-item">3D Design & CAD</li>
+            <li class="grid-item">Sensor Interfacing & LCD Systems</li>
+            <li class="grid-item">3D Design & CAD Modeling</li>
             <li class="grid-item">Ethical Hacking & Cybersecurity</li>
           </ul>
         </div>
@@ -133,72 +134,134 @@
 
       <section id="programming-tutorials">
         <h2>📚 Programming Tutorials</h2>
-        <p style="margin-bottom: 15px; color: #a0aec0;">Step-by-step guides covering software environments used at NexusDev Technologies.</p>
+        <p style="margin-bottom: 15px; color: #a0aec0;">Complete tech stack learning paths engineered for robotics, web applications, and mobile software design.</p>
 
         <div class="card" style="margin-bottom: 15px;">
           <h3 style="color: cyan;">⚡ 1. C++ (Arduino Microcontrollers)</h3>
-          <p style="margin-top: 5px;">C++ is used for low-level embedded hardware design. It directly controls microcontrollers like Arduino Uno, ESP8266, and ESP32.</p>
-          <pre><code>// Basic Arduino C++ Structure
+          <p style="margin-top: 5px;">Low-level programming language used to program physical boards like Arduino, ESP8266, and ESP32.</p>
+          <pre><code>// Arduino C++ Digital Output Example
 const int ledPin = 13;
 
 void setup() {
-  pinMode(ledPin, OUTPUT); // Configure Pin 13 as Output
-  Serial.begin(9600);      // Initialize Serial Monitor
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(ledPin, HIGH); // Turn LED ON
-  delay(1000);                // Wait 1 second
-  digitalWrite(ledPin, LOW);  // Turn LED OFF
-  delay(1000);                // Wait 1 second
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(1000);
 }</code></pre>
         </div>
 
         <div class="card" style="margin-bottom: 15px;">
-          <h3 style="color: cyan;">🤖 2. PictoBlox (AI & Hardware Block Coding)</h3>
-          <p style="margin-top: 5px;">PictoBlox connects graphical block programming to Artificial Intelligence, Face Recognition, and Quark/Arduino boards.</p>
+          <h3 style="color: cyan;">🤖 2. PictoBlox (AI & Block Coding)</h3>
+          <p style="margin-top: 5px;">Combines block-based programming with AI image classification and hardware controllers.</p>
           <pre><code>[When Flag Clicked]
- ├── [Turn Artificial Intelligence Vision ON]
+ ├── [Turn AI Camera Vision ON]
  ├── [Forever]
- │     ├── [Analyze Image from Camera]
- │     ├── [If < (Detected Face) = "Adnan" > Then]
- │     │     ├── [Say "Access Granted" for 2 seconds]
- │     │     └── [Set Servo on Pin 9 to 90 degrees] (Open Gate)
- │     └── [Else]
- │           └── [Say "Access Denied" for 2 seconds]</code></pre>
+ │     ├── [Analyze Frame]
+ │     └── [If < Face Detected = "Adnan" > Then]
+ │           └── [Set Servo Pin 9 to 90 degrees]</code></pre>
         </div>
 
         <div class="card" style="margin-bottom: 15px;">
-          <h3 style="color: cyan;">🐱 3. Scratch (Interactive Games & Animation)</h3>
-          <p style="margin-top: 5px;">Scratch is used to learn fundamental logic, conditionals, variables, and 2D game loops.</p>
+          <h3 style="color: cyan;">🐱 3. Scratch (Game Design & Logic)</h3>
+          <p style="margin-top: 5px;">Ideal environment for building fast 2D games and learning variables, broadcast events, and loops.</p>
           <pre><code>[When Green Flag Clicked]
  ├── [Set score to 0]
- ├── [Go to x: 0 y: -120]
  ├── [Forever]
  │     ├── [If < Key (Right Arrow) Pressed? > Then]
  │     │     └── [Change x by 10]
- │     ├── [If < Key (Left Arrow) Pressed? > Then]
- │     │     └── [Change x by -10]
  │     └── [If < Touching (Obstacle) ? > Then]
  │           └── [Stop All]</code></pre>
         </div>
 
-        <div class="card">
-          <h3 style="color: cyan;">🐍 4. Python & MicroPython</h3>
-          <p style="margin-top: 5px;">Python powers AI, computer vision, cybersecurity scripts, and MicroPython hardware controllers.</p>
-          <pre><code># MicroPython / Python Hardware & Logic Control
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">🐍 4. Python (AI & MicroPython)</h3>
+          <p style="margin-top: 5px;">Powering robotics algorithms, computer vision, data pipelines, and MicroPython board automation.</p>
+          <pre><code># MicroPython Distance Logic Example
 from machine import Pin
 import time
 
 led = Pin(2, Pin.OUT)
-distance_sensor_cm = 15
+distance = 15
 
-if distance_sensor_cm < 20:
-    print("Warning: Object close!")
-    led.value(1) # Turn Alert Light ON
+if distance < 20:
+    print("Obstacle Detected!")
+    led.value(1)
 else:
-    print("Path Clear.")
-    led.value(0) # Turn Alert Light OFF</code></pre>
+    led.value(0)</code></pre>
+        </div>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">🌐 5. HTML5 (Web Page Structure)</h3>
+          <p style="margin-top: 5px;">HTML provides the layout, headings, forms, and core architectural components for web browsers.</p>
+          <pre><code><!-- Basic HTML Web Structure -->
+<div class="robot-panel">
+  <h2>Robot Controller</h2>
+  <button id="btn-forward">Move Forward</button>
+  <p id="status">Status: Ready</p>
+</div></code></pre>
+        </div>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">🎨 6. CSS3 (Styling & Modern Design)</h3>
+          <p style="margin-top: 5px;">CSS styles web elements with vibrant colors, cybernetic glowing visual effects, and responsive grid layouts.</p>
+          <pre><code>/* Glowing Cyberpunk Button Style */
+.robot-panel {
+  background: #161b22;
+  border: 1px solid cyan;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+}</code></pre>
+        </div>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">⚡ 7. JavaScript (Dynamic Web Functionality)</h3>
+          <p style="margin-top: 5px;">JavaScript brings web pages to life, handling user interaction, live API data, and WebSocket robot links.</p>
+          <pre><code>// Dynamic Button Click Event Listener
+document.getElementById('btn-forward').addEventListener('click', function() {
+  document.getElementById('status').innerText = 'Status: Moving Forward...';
+  console.log("Transmission Sent: [FORWARD]");
+});</code></pre>
+        </div>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">📱 8. Kotlin (Native Android App Development)</h3>
+          <p style="margin-top: 5px;">Google's modern, safe programming language used to build native Android applications and Bluetooth control dashboards.</p>
+          <pre><code>// Kotlin Android Button Click Event
+val btnConnect = findViewById<Button>(R.id.btnConnect)
+val statusText = findViewById<TextView>(R.id.statusText)
+
+btnConnect.setOnClickListener {
+    statusText.text = "Connecting to Robot Bluetooth..."
+}</code></pre>
+        </div>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">🎮 9. C# (Unity 3D Game Development & ROS)</h3>
+          <p style="margin-top: 5px;">C# powers Unity engine games, 3D robotics simulations, and user interface systems.</p>
+          <pre><code>// C# Unity Object Movement Script
+using UnityEngine;
+
+public class RobotController : MonoBehaviour {
+    public float speed = 5.0f;
+    void Update() {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+}</code></pre>
+        </div>
+
+        <div class="card">
+          <h3 style="color: cyan;">🗄️ 10. SQL (Database & Data Systems)</h3>
+          <p style="margin-top: 5px;">Structured Query Language stores, manages, and queries system operational logs and user databases.</p>
+          <pre><code>-- SQL Query to Fetch Recorded Robot Logs
+SELECT project_name, user_name, time 
+FROM project_submissions 
+WHERE category = 'Robotics' 
+ORDER BY time DESC;</code></pre>
         </div>
       </section>
 
