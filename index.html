@@ -11,7 +11,7 @@
     .header-logo { width: 100px; height: 100px; margin-bottom: 10px; filter: drop-shadow(0 0 10px cyan); }
     header h1 { font-size: 38px; margin: 0; letter-spacing: 2px; }
     header p { font-size: 18px; margin-top: 8px; color: #7fdbff; }
-    nav { background-color: #161b22; display: flex; justify-content: center; gap: 20px; padding: 12px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0, 255, 255, 0.2); }
+    nav { background-color: #161b22; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 12px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0, 255, 255, 0.2); }
     nav a { color: #ffffff; text-decoration: none; font-weight: bold; cursor: pointer; }
     nav a:hover { color: cyan; }
     .admin-nav { color: #4ecca3 !important; }
@@ -64,6 +64,7 @@
     <a href="#leadership" onclick="showMainPage()">Leadership</a>
     <a href="#divisions" onclick="showMainPage()">Divisions</a>
     <a href="#skills" onclick="showMainPage()">Skills & Goals</a>
+    <a href="#programming-tutorials" onclick="showMainPage()">Tutorials</a>
     <a href="#projects" onclick="showMainPage()">Projects</a>
     <a class="admin-nav" onclick="accessSubmissions()">🔒 Submission Requests</a>
   </nav>
@@ -117,17 +118,87 @@
         <h2>⚡ Technical Skills & Focus Areas</h2>
         <div class="card">
           <ul class="grid-list">
-            <li class="grid-item">Arduino Programming</li>
+            <li class="grid-item">Arduino & C++ Programming</li>
+            <li class="grid-item">Python & MicroPython</li>
+            <li class="grid-item">PictoBlox (AI & Block Coding)</li>
+            <li class="grid-item">Scratch Game Development</li>
             <li class="grid-item">ESP8266 & HC-05 Bluetooth</li>
-            <li class="grid-item">Sensor Interfacing</li>
-            <li class="grid-item">LCD I2C Systems</li>
-            <li class="grid-item">Relay Automation</li>
-            <li class="grid-item">Motor Control</li>
+            <li class="grid-item">Sensor Interfacing & LCD I2C</li>
+            <li class="grid-item">Relay Automation & Motor Control</li>
             <li class="grid-item">3D Design & CAD</li>
-            <li class="grid-item">App Development</li>
-            <li class="grid-item">Game Development</li>
             <li class="grid-item">Ethical Hacking & Cybersecurity</li>
           </ul>
+        </div>
+      </section>
+
+      <section id="programming-tutorials">
+        <h2>📚 Programming Tutorials</h2>
+        <p style="margin-bottom: 15px; color: #a0aec0;">Step-by-step guides covering software environments used at NexusDev Technologies.</p>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">⚡ 1. C++ (Arduino Microcontrollers)</h3>
+          <p style="margin-top: 5px;">C++ is used for low-level embedded hardware design. It directly controls microcontrollers like Arduino Uno, ESP8266, and ESP32.</p>
+          <pre><code>// Basic Arduino C++ Structure
+const int ledPin = 13;
+
+void setup() {
+  pinMode(ledPin, OUTPUT); // Configure Pin 13 as Output
+  Serial.begin(9600);      // Initialize Serial Monitor
+}
+
+void loop() {
+  digitalWrite(ledPin, HIGH); // Turn LED ON
+  delay(1000);                // Wait 1 second
+  digitalWrite(ledPin, LOW);  // Turn LED OFF
+  delay(1000);                // Wait 1 second
+}</code></pre>
+        </div>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">🤖 2. PictoBlox (AI & Hardware Block Coding)</h3>
+          <p style="margin-top: 5px;">PictoBlox connects graphical block programming to Artificial Intelligence, Face Recognition, and Quark/Arduino boards.</p>
+          <pre><code>[When Flag Clicked]
+ ├── [Turn Artificial Intelligence Vision ON]
+ ├── [Forever]
+ │     ├── [Analyze Image from Camera]
+ │     ├── [If < (Detected Face) = "Adnan" > Then]
+ │     │     ├── [Say "Access Granted" for 2 seconds]
+ │     │     └── [Set Servo on Pin 9 to 90 degrees] (Open Gate)
+ │     └── [Else]
+ │           └── [Say "Access Denied" for 2 seconds]</code></pre>
+        </div>
+
+        <div class="card" style="margin-bottom: 15px;">
+          <h3 style="color: cyan;">🐱 3. Scratch (Interactive Games & Animation)</h3>
+          <p style="margin-top: 5px;">Scratch is used to learn fundamental logic, conditionals, variables, and 2D game loops.</p>
+          <pre><code>[When Green Flag Clicked]
+ ├── [Set score to 0]
+ ├── [Go to x: 0 y: -120]
+ ├── [Forever]
+ │     ├── [If < Key (Right Arrow) Pressed? > Then]
+ │     │     └── [Change x by 10]
+ │     ├── [If < Key (Left Arrow) Pressed? > Then]
+ │     │     └── [Change x by -10]
+ │     └── [If < Touching (Obstacle) ? > Then]
+ │           └── [Stop All]</code></pre>
+        </div>
+
+        <div class="card">
+          <h3 style="color: cyan;">🐍 4. Python & MicroPython</h3>
+          <p style="margin-top: 5px;">Python powers AI, computer vision, cybersecurity scripts, and MicroPython hardware controllers.</p>
+          <pre><code># MicroPython / Python Hardware & Logic Control
+from machine import Pin
+import time
+
+led = Pin(2, Pin.OUT)
+distance_sensor_cm = 15
+
+if distance_sensor_cm < 20:
+    print("Warning: Object close!")
+    led.value(1) # Turn Alert Light ON
+else:
+    print("Path Clear.")
+    led.value(0) # Turn Alert Light OFF</code></pre>
         </div>
       </section>
 
