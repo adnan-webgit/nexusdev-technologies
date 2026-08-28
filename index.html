@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NEXUSDEV TECHNOLOGIES | Adnan Ahmad</title>
+
+  <!-- Browser Tab Favicon Icon -->
+  <link rel="icon" href="favicon" />
+  <link rel="apple-touch-icon" href="favicon" />
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d1117; color: #ffffff; line-height: 1.6; }
@@ -198,23 +203,23 @@ void loop() {
           <h3 style="color: cyan;">🤖 2. PictoBlox (AI & Block Coding)</h3>
           <p style="margin-top: 5px;">Combines block-based programming with AI image classification and hardware controllers.</p>
           <pre><code>[When Flag Clicked]
- ├── [Turn AI Camera Vision ON]
- ├── [Forever]
- │     ├── [Analyze Frame]
- │     └── [If < Face Detected = "Adnan" > Then]
- │           └── [Set Servo Pin 9 to 90 degrees]</code></pre>
+├── [Turn AI Camera Vision ON]
+├── [Forever]
+│   ├── [Analyze Frame]
+│   └── [If < Face Detected = "Adnan" > Then]
+│       └── [Set Servo Pin 9 to 90 degrees]</code></pre>
         </div>
 
         <div class="card" style="margin-bottom: 15px;">
           <h3 style="color: cyan;">🐱 3. Scratch (Game Design & Logic)</h3>
           <p style="margin-top: 5px;">Ideal environment for building fast 2D games and learning variables, broadcast events, and loops.</p>
           <pre><code>[When Green Flag Clicked]
- ├── [Set score to 0]
- ├── [Forever]
- │     ├── [If < Key (Right Arrow) Pressed? > Then]
- │     │     └── [Change x by 10]
- │     └── [If < Touching (Obstacle) ? > Then]
- │           └── [Stop All]</code></pre>
+├── [Set score to 0]
+├── [Forever]
+│   ├── [If < Key (Right Arrow) Pressed? > Then]
+│   │   └── [Change x by 10]
+│   └── [If < Touching (Obstacle) ? > Then]
+│       └── [Stop All]</code></pre>
         </div>
 
         <div class="card" style="margin-bottom: 15px;">
@@ -237,12 +242,12 @@ else:
         <div class="card" style="margin-bottom: 15px;">
           <h3 style="color: cyan;">🌐 5. HTML5 (Web Page Structure)</h3>
           <p style="margin-top: 5px;">HTML provides the layout, headings, forms, and core architectural components for web browsers.</p>
-          <pre><code><!-- Basic HTML Web Structure -->
-<div class="robot-panel">
-  <h2>Robot Controller</h2>
-  <button id="btn-forward">Move Forward</button>
-  <p id="status">Status: Ready</p>
-</div></code></pre>
+          <pre><code>&lt;!-- Basic HTML Web Structure --&gt;
+&lt;div class="robot-panel"&gt;
+  &lt;h2&gt;Robot Controller&lt;/h2&gt;
+  &lt;button id="btn-forward"&gt;Move Forward&lt;/button&gt;
+  &lt;p id="status"&gt;Status: Ready&lt;/p&gt;
+&lt;/div&gt;</code></pre>
         </div>
 
         <div class="card" style="margin-bottom: 15px;">
@@ -272,8 +277,8 @@ document.getElementById('btn-forward').addEventListener('click', function() {
           <h3 style="color: cyan;">📱 8. Kotlin (Native Android App Development)</h3>
           <p style="margin-top: 5px;">Google's modern, safe programming language used to build native Android applications and Bluetooth control dashboards.</p>
           <pre><code>// Kotlin Android Button Click Event
-val btnConnect = findViewById<Button>(R.id.btnConnect)
-val statusText = findViewById<TextView>(R.id.statusText)
+val btnConnect = findViewById&lt;Button&gt;(R.id.btnConnect)
+val statusText = findViewById&lt;TextView&gt;(R.id.statusText)
 
 btnConnect.setOnClickListener {
     statusText.text = "Connecting to Robot Bluetooth..."
@@ -487,7 +492,7 @@ ORDER BY time DESC;</code></pre>
         category: "Automation Division",
         summary: "Fluid level control unit monitoring reservoir limits to prevent dry-running of pumps.",
         wiring: [{ component: "Water Sensor", pin: "Analog Pin A0" }, { component: "Relay", pin: "Digital Pin 8" }],
-        code: `void setup() { pinMode(8, OUTPUT); }\nvoid loop() {\n  int val = analogRead(A0);\n  if (val < 200) digitalWrite(8, LOW);\n  else if (val > 600) digitalWrite(8, HIGH);\n}`
+        code: `void setup() { pinMode(8, OUTPUT); }\nvoid loop() {\n  if (analogRead(A0) < 200) digitalWrite(8, LOW);\n  else if (analogRead(A0) > 600) digitalWrite(8, HIGH);\n}`
       },
       lamp: {
         title: "Automatic Night Illumination Lamp",
@@ -497,6 +502,17 @@ ORDER BY time DESC;</code></pre>
         code: `void setup() { pinMode(3, OUTPUT); }\nvoid loop() {\n  if (analogRead(A0) < 300) digitalWrite(3, HIGH);\n  else digitalWrite(3, LOW);\n}`
       }
     };
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function showMainPage() {
+      document.getElementById('main-view').style.display = 'block';
+      document.getElementById('project-detail-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'none';
+      window.scrollTo(0, 0);
+    }
 
     function openProject(key) {
       const data = projectData[key];
@@ -532,142 +548,80 @@ ORDER BY time DESC;</code></pre>
       `;
       document.getElementById('detail-content').innerHTML = content;
       document.getElementById('main-view').style.display = 'none';
-      document.getElementById('admin-view').style.display = 'none';
       document.getElementById('project-detail-view').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('admin-view').style.display = 'none';
+      window.scrollTo(0, 0);
     }
 
     function handleFormSubmit(event, projectTitle) {
       event.preventDefault();
-      const newRecord = {
+      const reqData = {
         id: Date.now(),
-        request_type: "Hardware Project Build",
-        project_name: projectTitle,
-        user_name: document.getElementById('user_name').value,
-        user_email: document.getElementById('user_email').value,
-        user_phone: document.getElementById('user_phone').value,
-        user_location: document.getElementById('user_location').value,
-        user_category: document.getElementById('user_category').value,
-        user_org: document.getElementById('user_org').value,
-        details: "Hardware Build Request",
-        time: new Date().toLocaleString()
+        type: "Hardware Project Request",
+        project: projectTitle,
+        name: document.getElementById('user_name').value,
+        email: document.getElementById('user_email').value,
+        phone: document.getElementById('user_phone').value,
+        location: document.getElementById('user_location').value,
+        category: document.getElementById('user_category').value,
+        org: document.getElementById('user_org').value,
+        date: new Date().toLocaleString()
       };
-      storedRequests.unshift(newRecord);
+      storedRequests.push(reqData);
       localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
-
-      const summaryBox = document.getElementById('intake-summary');
-      summaryBox.innerHTML = `
-        <h4 style="color: cyan; text-align: center;">====================================================</h4>
-        <h4 style="color: cyan; text-align: center;">NEXUSDEV TECHNOLOGIES - PROJECT REQUEST LOGGED</h4>
-        <h4 style="color: cyan; text-align: center;">====================================================</h4>
-        <p><strong>MAKER NAME      :</strong> ${escapeHtml(newRecord.user_name)}</p>
-        <p><strong>EMAIL           :</strong> ${escapeHtml(newRecord.user_email)}</p>
-        <p><strong>PHONE           :</strong> ${escapeHtml(newRecord.user_phone)}</p>
-        <p><strong>LOCATION        :</strong> ${escapeHtml(newRecord.user_location)}</p>
-        <p><strong>USE CASE        :</strong> ${escapeHtml(newRecord.user_category)}</p>
-        <p><strong>ORGANIZATION    :</strong> ${escapeHtml(newRecord.user_org)}</p>
-        <p><strong>TARGET PROJECT  :</strong> ${projectTitle}</p>
-        <p>----------------------------------------------------</p>
-        <p><strong>STATUS          :</strong> LOGGED TO SUBMISSION PANEL</p>
-        <p><strong>LEAD ENGINEER   :</strong> ADNAN AHMAD</p>
-        <h4 style="color: cyan; border-top: 1px dashed cyan; margin-top: 5px; padding-top: 5px;">====================================================</h4>
-      `;
-      summaryBox.style.display = 'block';
-      document.getElementById('nexus-build-form').reset();
+      
+      const summary = document.getElementById('intake-summary');
+      summary.style.display = 'block';
+      summary.innerHTML = `<h3 style="color: cyan;">✅ Request Received!</h3><p>Thank you, <strong>${reqData.name}</strong>. Your request for <strong>${reqData.project}</strong> has been saved.</p><button class="ok-btn" onclick="showMainPage()">OK & Return</button>`;
     }
 
     function handleCustomSubmit(event) {
       event.preventDefault();
-      const serviceType = document.getElementById('custom_type').value;
-      const newRecord = {
+      const reqData = {
         id: Date.now(),
-        request_type: "Custom Software Order",
-        project_name: serviceType,
-        user_name: document.getElementById('custom_name').value,
-        user_email: document.getElementById('custom_email').value,
-        user_phone: document.getElementById('custom_phone').value,
-        user_location: "N/A",
-        user_category: "Custom Order",
-        user_org: document.getElementById('custom_org').value,
+        type: "Custom Software Order",
+        project: document.getElementById('custom_type').value,
+        name: document.getElementById('custom_name').value,
+        email: document.getElementById('custom_email').value,
+        phone: document.getElementById('custom_phone').value,
         details: document.getElementById('custom_details').value,
-        time: new Date().toLocaleString()
+        org: document.getElementById('custom_org').value,
+        date: new Date().toLocaleString()
       };
-      storedRequests.unshift(newRecord);
+      storedRequests.push(reqData);
       localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
-
-      const summaryBox = document.getElementById('custom-summary');
-      summaryBox.innerHTML = `
-        <h4 style="color: cyan; text-align: center;">====================================================</h4>
-        <h4 style="color: cyan; text-align: center;">NEXUSDEV TECHNOLOGIES - CUSTOM ORDER RECEIVED</h4>
-        <h4 style="color: cyan; text-align: center;">====================================================</h4>
-        <p><strong>CLIENT NAME     :</strong> ${escapeHtml(newRecord.user_name)}</p>
-        <p><strong>EMAIL           :</strong> ${escapeHtml(newRecord.user_email)}</p>
-        <p><strong>PHONE           :</strong> ${escapeHtml(newRecord.user_phone)}</p>
-        <p><strong>SERVICE TYPE    :</strong> ${escapeHtml(newRecord.project_name)}</p>
-        <p><strong>REQUIREMENTS    :</strong> ${escapeHtml(newRecord.details)}</p>
-        <p><strong>ORGANIZATION    :</strong> ${escapeHtml(newRecord.user_org)}</p>
-        <p>----------------------------------------------------</p>
-        <p><strong>STATUS          :</strong> LOGGED TO SUBMISSION PANEL</p>
-        <p><strong>LEAD DEVELOPER  :</strong> ADNAN AHMAD</p>
-        <h4 style="color: cyan; border-top: 1px dashed cyan; margin-top: 5px; padding-top: 5px;">====================================================</h4>
-      `;
-      summaryBox.style.display = 'block';
-      document.getElementById('custom-dev-form').reset();
+      
+      const summary = document.getElementById('custom-summary');
+      summary.style.display = 'block';
+      summary.innerHTML = `<h3 style="color: cyan;">✅ Project Order Received!</h3><p>Thank you, <strong>${reqData.name}</strong>. Your specifications for <strong>${reqData.project}</strong> have been submitted.</p><button class="ok-btn" onclick="document.getElementById('custom-dev-form').reset(); document.getElementById('custom-summary').style.display='none';">OK</button>`;
     }
 
     function accessSubmissions() {
-      const pass = prompt("Enter Admin Password:");
-      if (pass !== "nexus@sub") {
-        alert("Access Denied: Incorrect Password");
-        return;
-      }
       document.getElementById('main-view').style.display = 'none';
       document.getElementById('project-detail-view').style.display = 'none';
       document.getElementById('admin-view').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
       fetchSubmissions();
-    }
-
-    function dismissRequest(id) {
-      storedRequests = storedRequests.filter(sub => sub.id !== id);
-      localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
-      fetchSubmissions();
+      window.scrollTo(0, 0);
     }
 
     function fetchSubmissions() {
       const container = document.getElementById('submissions-list');
+      storedRequests = JSON.parse(localStorage.getItem("nexus_requests") || "[]");
       if (storedRequests.length === 0) {
-        container.innerHTML = `<p style="color: #4ecca3;">No submissions recorded right now.</p>`;
+        container.innerHTML = `<div class="card"><p style="color: #a0aec0;">No submissions logged yet.</p></div>`;
         return;
       }
-      let html = '';
-      storedRequests.forEach((sub, idx) => {
-        html += `
-          <div class="sub-card">
-            <h4 style="color: cyan; margin-bottom: 8px;">#${storedRequests.length - idx} - [${escapeHtml(sub.request_type || "Build Request")}] ${escapeHtml(sub.project_name)}</h4>
-            <p><strong>Submitted At:</strong> ${escapeHtml(sub.time)}</p>
-            <p><strong>Name:</strong> ${escapeHtml(sub.user_name)}</p>
-            <p><strong>Email:</strong> ${escapeHtml(sub.user_email)}</p>
-            <p><strong>Phone:</strong> ${escapeHtml(sub.user_phone)}</p>
-            ${sub.user_location !== "N/A" ? `<p><strong>Location:</strong> ${escapeHtml(sub.user_location)}</p>` : ''}
-            <p><strong>Organization / Use Case:</strong> ${escapeHtml(sub.user_org)}</p>
-            <p><strong>Project Details / Requirements:</strong> ${escapeHtml(sub.details)}</p>
-            <button class="ok-btn" onclick="dismissRequest(${sub.id})">OK (Dismiss)</button>
-          </div>
-        `;
-      });
-      container.innerHTML = html;
-    }
-
-    function showMainPage() {
-      document.getElementById('project-detail-view').style.display = 'none';
-      document.getElementById('admin-view').style.display = 'none';
-      document.getElementById('main-view').style.display = 'block';
-    }
-
-    function escapeHtml(str) {
-      return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      container.innerHTML = storedRequests.map(r => `
+        <div class="sub-card">
+          <p style="color: cyan; font-weight: bold;">[${r.type}] - ${r.project}</p>
+          <p><strong>Name:</strong> ${r.name} | <strong>Email:</strong> ${r.email} | <strong>Phone:</strong> ${r.phone}</p>
+          ${r.location ? `<p><strong>Location:</strong> ${r.location} | <strong>Category:</strong> ${r.category}</p>` : ''}
+          ${r.details ? `<p><strong>Details:</strong> ${r.details}</p>` : ''}
+          <p><strong>Org/Use Case:</strong> ${r.org} | <strong>Submitted:</strong> ${r.date}</p>
+        </div>
+      `).join('');
     }
   </script>
+
 </body>
 </html>
