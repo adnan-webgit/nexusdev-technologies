@@ -442,43 +442,10 @@
       box-shadow: 0 0 25px rgba(220, 39, 67, 0.8);
     }
   </style>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://www.instagram.com/_adnanahmad._/",
-      "name": "Adnan Ahmad",
-      "jobTitle": "Founder & CEO",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "NexusDev Technologies"
-      },
-      "url": "https://www.instagram.com/_adnanahmad._/",
-      "sameAs": [
-        "https://www.instagram.com/_adnanahmad._/",
-        "https://github.com"
-      ]
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://www.instagram.com/nexusdev.technologies/#organization",
-      "name": "NexusDev Technologies",
-      "url": "https://github.com",
-      "sameAs": [
-        "https://www.instagram.com/nexusdev.technologies/",
-        "https://www.instagram.com/_adnanahmad._/"
-      ]
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
-  <!-- FLOATING WHATSAPP CONTACT BUTTON (ALWAYS VISIBLE) -->
+  <!-- FLOATING WHATSAPP BUTTON (ALWAYS VISIBLE) -->
   <a href="https://wa.me/918281349340?text=Hi%20Adnan!%20I%20visited%20NexusDev%20Technologies%20and%20I%20want%20to%20order%20a%20project%20/%20component." 
      target="_blank" rel="noopener noreferrer" class="floating-wa-btn" title="Chat on WhatsApp with Adnan">
     <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
@@ -510,6 +477,7 @@
 
   <main>
     <div id="main-view">
+      <!-- LEADERSHIP SECTION -->
       <section id="leadership">
         <h2>👑 Organization Leadership</h2>
         <div class="leadership-grid">
@@ -540,6 +508,7 @@
         </div>
       </section>
 
+      <!-- DIVISIONS SECTION -->
       <section id="divisions">
         <h2>🤖 Main Divisions</h2>
         <div class="card">
@@ -553,6 +522,7 @@
         </div>
       </section>
 
+      <!-- SKILLS SECTION -->
       <section id="skills">
         <h2>⚡ Technical Skills & Focus Areas</h2>
         <div class="card">
@@ -571,6 +541,7 @@
         </div>
       </section>
 
+      <!-- TUTORIALS SECTION -->
       <section id="programming-tutorials">
         <h2>📚 Programming Tutorials</h2>
         <p style="margin-bottom: 15px; color: var(--text-muted);">Complete tech stack learning paths engineered for robotics, web applications, and mobile software design.</p>
@@ -704,19 +675,104 @@ ORDER BY time DESC;</code></pre>
         </div>
       </section>
 
+      <!-- PROJECTS SECTION (NOW HARDCODED TO GUARANTEE THEY ALWAYS APPEAR!) -->
       <section id="projects">
         <h2>🏆 Completed Projects & Hardware Builds (Amazon-Style Store)</h2>
         <p style="margin-bottom: 15px; color: var(--text-muted);">Click on any project below to inspect circuit diagrams, pinout configurations, source code, battery options, and live pricing calculation.</p>
         <div class="card">
-          <div class="projects-grid" id="projects-grid-container">
-            <!-- Projects injected via JavaScript with live prices -->
+          <div class="projects-grid">
+            <div class="project-card" onclick="openProject('car')">
+              <div>
+                <h3>ESP8266 2WD Bluetooth RC Car</h3>
+                <p>Two-wheel drive robotic vehicle controlled via HC-05 Bluetooth with dynamic PWM speed regulation.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹1,188</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
+
+            <div class="project-card" onclick="openProject('joystick')">
+              <div>
+                <h3>Arduino Uno PS2 Bluetooth Remote Controller</h3>
+                <p>Wireless master transmitter featuring PS2 joysticks, speed gauge servo motor, and AIP31068 LCD display.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹1,063</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
+
+            <div class="project-card" onclick="openProject('radar')">
+              <div>
+                <h3>Ultrasonic Radar Scanner</h3>
+                <p>Ultrasonic sensor-based sweep system mounted on micro servo motors for mapping spatial boundaries.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹813</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
+
+            <div class="project-card" onclick="openProject('plant')">
+              <div>
+                <h3>Smart Plant Monitor</h3>
+                <p>Soil moisture tracking system designed for automatic plant hydration and fluid relay pumping.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹688</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
+
+            <div class="project-card" onclick="openProject('alarm')">
+              <div>
+                <h3>Motion Security Alarm</h3>
+                <p>PIR and interrupt-driven relay alarm system for immediate home & perimeter security breach detection.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹600</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
+
+            <div class="project-card" onclick="openProject('weather')">
+              <div>
+                <h3>Micro Weather Station</h3>
+                <p>Environmental tracking station reading temperature, relative humidity, and atmospheric metrics.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹738</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
+
+            <div class="project-card" onclick="openProject('pump')">
+              <div>
+                <h3>Water Pump Automation Unit</h3>
+                <p>Automated fluid level detection system controlling high-voltage relays to prevent dry running.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹900</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
+
+            <div class="project-card" onclick="openProject('lamp')">
+              <div>
+                <h3>Automatic Night Lamp</h3>
+                <p>Light-dependent resistor (LDR) automation triggering night illumination switches based on ambient light.</p>
+              </div>
+              <div class="project-price-tag">
+                <span>₹475</span>
+                <span class="click-hint">View Pinouts & Buy &rarr;</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ========================================================
-           NEW: SCHOOL SCIENCE FAIR & EXHIBITION PACKS
-           ======================================================== -->
+      <!-- SCIENCE FAIR PACKS -->
       <section id="science-fair">
         <h2>🎓 School & College Science Fair Exhibition Packs</h2>
         <p style="margin-bottom: 15px; color: var(--text-muted);">Ready-to-present working models for CBSE, State board science fairs, and engineering mini-projects. Includes fully assembled working hardware, circuit chart, and speech presentation guide!</p>
@@ -788,9 +844,7 @@ ORDER BY time DESC;</code></pre>
         </div>
       </section>
 
-      <!-- ========================================================
-           DEDICATED COMPONENT ORDERING STORE BOX
-           ======================================================== -->
+      <!-- DEDICATED COMPONENT ORDERING STORE BOX -->
       <section id="components-store">
         <h2>📦 Order Individual Components (Arduino Uno, Sensors & ICs)</h2>
         <p style="margin-bottom: 15px; color: var(--text-muted);">Need specific microcontrollers, sensors, or modules like Arduino Uno, ESP8266, Bluetooth, or Motors? Order individual genuine components below with custom requirements.</p>
@@ -903,11 +957,13 @@ ORDER BY time DESC;</code></pre>
       </section>
     </div>
 
+    <!-- DETAIL VIEW -->
     <div id="project-detail-view">
       <button class="back-btn" onclick="showMainPage()">&larr; Back to Portfolio</button>
       <section id="detail-content"></section>
     </div>
 
+    <!-- ADMIN VIEW -->
     <div id="admin-view">
       <button class="back-btn" onclick="showMainPage()">&larr; Back to Portfolio</button>
       <section>
@@ -926,7 +982,6 @@ ORDER BY time DESC;</code></pre>
       <p><strong>Phone / WhatsApp:</strong> +91 8281349340 | <strong>Email:</strong> 8281349340india@gmail.com</p>
     </div>
     <div class="social-container">
-      <!-- Founder & CEO Instagram -->
       <a href="https://www.instagram.com/_adnanahmad._/" target="_blank" rel="noopener noreferrer" class="instagram-badge">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -934,7 +989,6 @@ ORDER BY time DESC;</code></pre>
         Founder: @_adnanahmad._
       </a>
 
-      <!-- Official NexusDev Technologies Instagram -->
       <a href="https://www.instagram.com/nexusdev.technologies/" target="_blank" rel="noopener noreferrer" class="instagram-badge">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -945,10 +999,6 @@ ORDER BY time DESC;</code></pre>
   </footer>
 
   <script>
-    /* ============================================================
-       WHERE TO CHANGE THE PRICES:
-       - PROFIT_MARGIN: 0.25 (25% added automatically to total)
-       ============================================================ */
     const PROFIT_MARGIN = 0.25;
 
     const BATTERY_PRICES = {
@@ -1046,32 +1096,9 @@ ORDER BY time DESC;</code></pre>
       return { subtotal, profit, total };
     }
 
-    function renderProjectGrid() {
-      const container = document.getElementById('projects-grid-container');
-      let html = '';
-      for (const [key, data] of Object.entries(projectData)) {
-        const prices = calculatePrice(data.basePrice, 0);
-        html += `
-          <div class="project-card" onclick="openProject('${key}')">
-            <div>
-              <h3>${data.title}</h3>
-              <p>${data.summary}</p>
-            </div>
-            <div>
-              <div class="project-price-tag">
-                <span>₹${prices.total}</span>
-                <span class="click-hint">View Details & Customization &rarr;</span>
-              </div>
-            </div>
-          </div>
-        `;
-      }
-      container.innerHTML = html;
-    }
-
-    /* COMPONENT CALCULATOR LOGIC */
     function updateComponentPrice() {
       const select = document.getElementById('comp_item');
+      if (!select) return;
       const baseUnit = parseInt(select.options[select.selectedIndex].getAttribute('data-price') || "390");
       const qty = parseInt(document.getElementById('comp_quantity').value) || 1;
       const totalBase = baseUnit * qty;
@@ -1102,4 +1129,313 @@ ORDER BY time DESC;</code></pre>
           <div style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Price Details (Amazon Style)</div>
           <div class="price-main">
             <span id="display-total-price">₹${defaultPricing.total}</span>
-            <span class="price-sub">(Inclusive of all taxes & 25%
+            <span class="price-sub">(Inclusive of all taxes & 25% assembly/profit margin)</span>
+          </div>
+          <div class="badge-profit">✔ 25% Quality Engineering & Testing Margin Applied</div>
+          <div class="delivery-notice">
+            🚚 Delivery Fee: <strong>Will be announced later based on your delivery address</strong>
+          </div>
+          <div style="margin-top: 15px; font-size: 0.95rem; color: #94a3b8;">
+            Base Kit: ₹${data.basePrice} | Margin (25%): <span id="display-profit-price">₹${defaultPricing.profit}</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;"><h3>Overview & Logic</h3><p style="margin-top: 8px;">${data.summary}</p></div>
+        <div class="card" style="margin-top: 20px;"><h3>Hardware Wiring Pinouts</h3><table><thead><tr><th>Hardware Module</th><th>Target Board Pin</th></tr></thead><tbody>${wiringRows}</tbody></table></div>
+        <div class="card" style="margin-top: 20px;"><h3>Full Arduino C++ Code</h3><pre><code>${escapeHtml(data.code)}</code></pre></div>
+
+        <div class="card" style="margin-top: 20px;">
+          <h3>🛠️ Configure & Order This Hardware Project</h3>
+          <p style="margin-bottom: 15px; color: var(--text-muted);">Choose your battery configuration, enter your customized features, and submit your order directly to NexusDev Technologies.</p>
+
+          <form id="nexus-build-form" onsubmit="handleFormSubmit(event, '${escapeHtml(data.title)}', ${data.basePrice})">
+            <!-- BATTERY SELECTION -->
+            <div class="form-group">
+              <label>Select Battery Pack Configuration:</label>
+              <select id="battery_choice" onchange="updateDynamicPrice(${data.basePrice})">
+                <option value="none">No Battery / Bring Your Own (Standard)</option>
+                <option value="disposable">Chargeable / Disposable Heavy-Duty Pack (+₹120)</option>
+                <option value="rechargeable">Rechargeable Li-Ion High-Capacity Battery Pack with USB Charger (+₹380)</option>
+              </select>
+            </div>
+
+            <!-- CUSTOMIZATION TEXTAREA -->
+            <div class="customization-box">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label style="color: var(--neon-cyan); font-size: 1.05rem;">✏️ Project Customization Request:</label>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Need custom dimensions, additional sensors (e.g. OLED screen, buzzer, extra range), custom 3D enclosure, or custom code modifications? Specify here:</p>
+                <textarea id="project_customization" placeholder="e.g. Please add an OLED display to show live values, provide extra-long connection wires, and code a buzzer alert when activated..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-group"><label>Full Name:</label><input type="text" id="user_name" required placeholder="Enter your name" /></div>
+            <div class="form-group"><label>Email Address:</label><input type="email" id="user_email" required placeholder="name@example.com" /></div>
+            <div class="form-group"><label>Phone Number:</label><input type="tel" id="user_phone" required placeholder="+91 XXXXXXXXXX" /></div>
+            <div class="form-group"><label>Delivery City & Full Address:</label><input type="text" id="user_location" required placeholder="City, State, Pincode" /></div>
+            <div class="form-group">
+              <label>Category:</label>
+              <select id="user_category">
+                <option value="Personal / Hobbyist">Personal / Hobbyist</option>
+                <option value="School / Academic Project">School / Academic Project</option>
+                <option value="Professional / Work">Professional / Work</option>
+              </select>
+            </div>
+            <div class="form-group"><label>School or Company Name:</label><input type="text" id="user_org" required placeholder="School / College / Organization" /></div>
+
+            <button type="submit" class="submit-btn">🚀 Save Order to Panel (<span id="btn-price-display">₹${defaultPricing.total}</span>)</button>
+            <button type="button" class="whatsapp-btn" onclick="orderProjectWhatsApp('${escapeHtml(data.title)}')">💬 Instant Order on WhatsApp</button>
+          </form>
+          <div id="intake-summary" class="summary-box"></div>
+        </div>
+      `;
+      document.getElementById('detail-content').innerHTML = content;
+      document.getElementById('main-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'none';
+      document.getElementById('project-detail-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateDynamicPrice(basePrice) {
+      const batteryKey = document.getElementById('battery_choice').value;
+      const batteryExtra = BATTERY_PRICES[batteryKey] ? BATTERY_PRICES[batteryKey].price : 0;
+      const prices = calculatePrice(basePrice, batteryExtra);
+
+      document.getElementById('display-total-price').innerText = `₹${prices.total}`;
+      document.getElementById('display-profit-price').innerText = `₹${prices.profit}`;
+      document.getElementById('btn-price-display').innerText = `₹${prices.total}`;
+    }
+
+    function orderProjectWhatsApp(projectTitle) {
+      const batteryEl = document.getElementById('battery_choice');
+      const batteryText = batteryEl ? batteryEl.options[batteryEl.selectedIndex].text : "Standard";
+      const customNotes = document.getElementById('project_customization') ? document.getElementById('project_customization').value : "None";
+      const priceText = document.getElementById('display-total-price') ? document.getElementById('display-total-price').innerText : "";
+
+      const msg = `Hi Adnan! I want to order the "${projectTitle}".%0A- Battery: ${encodeURIComponent(batteryText)}%0A- Custom Specs: ${encodeURIComponent(customNotes)}%0A- Quoted Price: ${encodeURIComponent(priceText)}`;
+      window.open(`https://wa.me/918281349340?text=${msg}`, '_blank');
+    }
+
+    function orderComponentWhatsApp() {
+      const select = document.getElementById('comp_item');
+      const item = select.value;
+      const qty = document.getElementById('comp_quantity').value;
+      const custom = document.getElementById('comp_customization').value || "None";
+      const total = document.getElementById('comp-total-display').innerText;
+
+      const msg = `Hi Adnan! I want to order an individual component:%0A- Item: ${encodeURIComponent(item)}%0A- Quantity: ${qty}%0A- Custom Specs: ${encodeURIComponent(custom)}%0A- Total Price: ${encodeURIComponent(total)}`;
+      window.open(`https://wa.me/918281349340?text=${msg}`, '_blank');
+    }
+
+    function orderCustomDevWhatsApp() {
+      const type = document.getElementById('custom_type').value;
+      const details = document.getElementById('custom_details').value || "Discuss requirements";
+      const msg = `Hi Adnan! I want to discuss a custom development project:%0A- Service: ${encodeURIComponent(type)}%0A- Details: ${encodeURIComponent(details)}`;
+      window.open(`https://wa.me/918281349340?text=${msg}`, '_blank');
+    }
+
+    function handleFormSubmit(event, projectTitle, basePrice) {
+      event.preventDefault();
+      const batteryKey = document.getElementById('battery_choice').value;
+      const batteryInfo = BATTERY_PRICES[batteryKey] || BATTERY_PRICES.none;
+      const finalPricing = calculatePrice(basePrice, batteryInfo.price);
+      const customReq = document.getElementById('project_customization').value || "Standard Build (No special customization requested)";
+
+      const newRecord = {
+        id: Date.now(),
+        request_type: "Hardware Project Build Order",
+        project_name: projectTitle,
+        user_name: document.getElementById('user_name').value,
+        user_email: document.getElementById('user_email').value,
+        user_phone: document.getElementById('user_phone').value,
+        user_location: document.getElementById('user_location').value,
+        user_category: document.getElementById('user_category').value,
+        user_org: document.getElementById('user_org').value,
+        battery: batteryInfo.name,
+        customization: customReq,
+        calculated_price: `₹${finalPricing.total} (Base: ₹${basePrice} + Battery: ₹${batteryInfo.price} + 25% Profit: ₹${finalPricing.profit})`,
+        delivery_note: "Delivery fee will be calculated & announced later based on address",
+        time: new Date().toLocaleString()
+      };
+      storedRequests.unshift(newRecord);
+      localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
+
+      const summaryBox = document.getElementById('intake-summary');
+      summaryBox.innerHTML = `
+        <h4 style="color: var(--neon-cyan); text-align: center;">====================================================</h4>
+        <h4 style="color: var(--gold); text-align: center;">NEXUSDEV TECHNOLOGIES - ORDER INTAKE CONFIRMED</h4>
+        <h4 style="color: var(--neon-cyan); text-align: center;">====================================================</h4>
+        <p><strong>MAKER NAME       :</strong> ${escapeHtml(newRecord.user_name)}</p>
+        <p><strong>EMAIL            :</strong> ${escapeHtml(newRecord.user_email)}</p>
+        <p><strong>PHONE            :</strong> ${escapeHtml(newRecord.user_phone)}</p>
+        <p><strong>DELIVERY ADDRESS :</strong> ${escapeHtml(newRecord.user_location)}</p>
+        <p><strong>USE CASE         :</strong> ${escapeHtml(newRecord.user_category)}</p>
+        <p><strong>ORGANIZATION     :</strong> ${escapeHtml(newRecord.user_org)}</p>
+        <p><strong>TARGET PROJECT   :</strong> ${projectTitle}</p>
+        <p><strong>BATTERY PACK     :</strong> ${escapeHtml(newRecord.battery)}</p>
+        <p><strong>CUSTOMIZATION    :</strong> <span style="color: var(--neon-cyan);">${escapeHtml(newRecord.customization)}</span></p>
+        <p>----------------------------------------------------</p>
+        <p><strong>FINAL PRICE (25% PROFIT):</strong> <span style="color: var(--gold); font-weight: bold; font-size: 1.1rem;">₹${finalPricing.total}</span></p>
+        <p><strong>DELIVERY FEE     :</strong> <span>To be announced later</span></p>
+        <p><strong>STATUS           :</strong> LOGGED TO SUBMISSIONS PANEL</p>
+        <p><strong>LEAD ENGINEER    :</strong> ADNAN AHMAD</p>
+        <h4 style="color: var(--neon-cyan); border-top: 1px dashed var(--neon-cyan); margin-top: 5px; padding-top: 5px;">====================================================</h4>
+      `;
+      summaryBox.style.display = 'block';
+    }
+
+    function handleComponentSubmit(event) {
+      event.preventDefault();
+      const select = document.getElementById('comp_item');
+      const itemName = select.value;
+      const baseUnit = parseInt(select.options[select.selectedIndex].getAttribute('data-price') || "390");
+      const qty = parseInt(document.getElementById('comp_quantity').value) || 1;
+      const totalBase = baseUnit * qty;
+      const profit = Math.round(totalBase * PROFIT_MARGIN);
+      const finalPrice = totalBase + profit;
+      const customReq = document.getElementById('comp_customization').value || "Standard component (No custom specs requested)";
+
+      const newRecord = {
+        id: Date.now(),
+        request_type: "Individual Component Order",
+        project_name: `${itemName} (Qty: ${qty})`,
+        user_name: document.getElementById('comp_user_name').value,
+        user_email: document.getElementById('comp_user_email').value,
+        user_phone: document.getElementById('comp_user_phone').value,
+        user_location: document.getElementById('comp_user_address').value,
+        user_category: "Component Order",
+        user_org: "Individual Maker / Student",
+        battery: "N/A",
+        customization: customReq,
+        calculated_price: `₹${finalPrice} (Base: ₹${totalBase} + 25% Profit: ₹${profit})`,
+        delivery_note: "Delivery fee to be announced based on shipping address",
+        time: new Date().toLocaleString()
+      };
+
+      storedRequests.unshift(newRecord);
+      localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
+
+      const summaryBox = document.getElementById('comp-summary');
+      summaryBox.innerHTML = `
+        <h4 style="color: var(--neon-cyan); text-align: center;">====================================================</h4>
+        <h4 style="color: var(--gold); text-align: center;">NEXUSDEV - COMPONENT ORDER CONFIRMED</h4>
+        <h4 style="color: var(--neon-cyan); text-align: center;">====================================================</h4>
+        <p><strong>BUYER NAME       :</strong> ${escapeHtml(newRecord.user_name)}</p>
+        <p><strong>EMAIL            :</strong> ${escapeHtml(newRecord.user_email)}</p>
+        <p><strong>PHONE            :</strong> ${escapeHtml(newRecord.user_phone)}</p>
+        <p><strong>DELIVERY ADDRESS :</strong> ${escapeHtml(newRecord.user_location)}</p>
+        <p><strong>COMPONENT ORDERED:</strong> ${escapeHtml(newRecord.project_name)}</p>
+        <p><strong>CUSTOM SPECS     :</strong> <span style="color: var(--neon-cyan);">${escapeHtml(newRecord.customization)}</span></p>
+        <p>----------------------------------------------------</p>
+        <p><strong>TOTAL PRICE (25% MARGIN):</strong> <span style="color: var(--gold); font-weight: bold; font-size: 1.15rem;">₹${finalPrice}</span></p>
+        <p><strong>DELIVERY FEE     :</strong> <span>Will be announced later</span></p>
+        <p><strong>STATUS           :</strong> LOGGED TO SUBMISSIONS PANEL</p>
+        <p><strong>LEAD ENGINEER    :</strong> ADNAN AHMAD</p>
+        <h4 style="color: var(--neon-cyan); border-top: 1px dashed var(--neon-cyan); margin-top: 5px; padding-top: 5px;">====================================================</h4>
+      `;
+      summaryBox.style.display = 'block';
+    }
+
+    function handleCustomSubmit(event) {
+      event.preventDefault();
+      const serviceType = document.getElementById('custom_type').value;
+      const newRecord = {
+        id: Date.now(),
+        request_type: "Custom Software Order",
+        project_name: serviceType,
+        user_name: document.getElementById('custom_name').value,
+        user_email: document.getElementById('custom_email').value,
+        user_phone: document.getElementById('custom_phone').value,
+        user_location: "N/A",
+        user_category: "Custom Order",
+        user_org: document.getElementById('custom_org').value,
+        battery: "N/A",
+        customization: document.getElementById('custom_details').value,
+        calculated_price: "Custom Quotation with 25% profit margin",
+        delivery_note: "Digital Delivery via GitHub / Cloud",
+        time: new Date().toLocaleString()
+      };
+      storedRequests.unshift(newRecord);
+      localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
+
+      const summaryBox = document.getElementById('custom-summary');
+      summaryBox.innerHTML = `
+        <h4 style="color: var(--neon-cyan); text-align: center;">====================================================</h4>
+        <h4 style="color: var(--gold); text-align: center;">NEXUSDEV TECHNOLOGIES - CUSTOM ORDER RECEIVED</h4>
+        <h4 style="color: var(--neon-cyan); text-align: center;">====================================================</h4>
+        <p><strong>CLIENT NAME      :</strong> ${escapeHtml(newRecord.user_name)}</p>
+        <p><strong>EMAIL            :</strong> ${escapeHtml(newRecord.user_email)}</p>
+        <p><strong>PHONE            :</strong> ${escapeHtml(newRecord.user_phone)}</p>
+        <p><strong>SERVICE TYPE     :</strong> ${escapeHtml(newRecord.project_name)}</p>
+        <p><strong>REQUIREMENTS     :</strong> <span style="color: var(--neon-cyan);">${escapeHtml(newRecord.customization)}</span></p>
+        <p><strong>ORGANIZATION     :</strong> ${escapeHtml(newRecord.user_org)}</p>
+        <p>----------------------------------------------------</p>
+        <p><strong>STATUS           :</strong> LOGGED TO SUBMISSION PANEL</p>
+        <p><strong>LEAD DEVELOPER   :</strong> ADNAN AHMAD</p>
+        <h4 style="color: var(--neon-cyan); border-top: 1px dashed var(--neon-cyan); margin-top: 5px; padding-top: 5px;">====================================================</h4>
+      `;
+      summaryBox.style.display = 'block';
+      document.getElementById('custom-dev-form').reset();
+    }
+
+    function accessSubmissions() {
+      const pass = prompt("Enter Admin Password:");
+      if (pass !== "nexus@sub") {
+        alert("Access Denied: Incorrect Password");
+        return;
+      }
+      document.getElementById('main-view').style.display = 'none';
+      document.getElementById('project-detail-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      fetchSubmissions();
+    }
+
+    function dismissRequest(id) {
+      storedRequests = storedRequests.filter(sub => sub.id !== id);
+      localStorage.setItem("nexus_requests", JSON.stringify(storedRequests));
+      fetchSubmissions();
+    }
+
+    function fetchSubmissions() {
+      const container = document.getElementById('submissions-list');
+      if (storedRequests.length === 0) {
+        container.innerHTML = `<p style="color: var(--neon-green);">No submissions recorded right now.</p>`;
+        return;
+      }
+      let html = '';
+      storedRequests.forEach((sub, idx) => {
+        html += `
+          <div class="sub-card">
+            <h4 style="color: var(--neon-cyan); margin-bottom: 8px;">#${storedRequests.length - idx} - [${escapeHtml(sub.request_type || "Build Request")}] ${escapeHtml(sub.project_name)}</h4>
+            <p><strong>Submitted At:</strong> ${escapeHtml(sub.time)}</p>
+            <p><strong>Name:</strong> ${escapeHtml(sub.user_name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(sub.user_email)}</p>
+            <p><strong>Phone:</strong> ${escapeHtml(sub.user_phone)}</p>
+            ${sub.user_location !== "N/A" ? `<p><strong>Delivery Location:</strong> ${escapeHtml(sub.user_location)}</p>` : ''}
+            ${sub.battery !== "N/A" ? `<p><strong>Battery Chosen:</strong> ${escapeHtml(sub.battery)}</p>` : ''}
+            <p><strong>Customization Requests:</strong> <span style="color: var(--gold);">${escapeHtml(sub.customization || "None")}</span></p>
+            <p><strong>Pricing:</strong> <span style="color: var(--neon-green); font-weight: bold;">${escapeHtml(sub.calculated_price || "Standard")}</span></p>
+            <p><strong>Delivery Fee Note:</strong> ${escapeHtml(sub.delivery_note || "To be announced")}</p>
+            <p><strong>Organization / Use Case:</strong> ${escapeHtml(sub.user_org)}</p>
+            <button class="ok-btn" onclick="dismissRequest(${sub.id})">OK (Dismiss)</button>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function showMainPage() {
+      document.getElementById('project-detail-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'none';
+      document.getElementById('main-view').style.display = 'block';
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    // Initialize component price
+    updateComponentPrice();
+  </script>
+</body>
+</html>
